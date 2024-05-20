@@ -9,7 +9,9 @@ class AnalisisExploratorio:
         self.columnas=columnas
 
     def mostrar_primeras_filas(self, n=5):
-        return self.df[self.columnas].head(n).to_string()
+        return self.df.select( "nombre_nodo", "nombre_plan", "dow_rate_consumo" ).limit(n).show()
+        # return self.df.select( col for col in self.columnas ).limit(n).to_string()
+        # return self.df[self.columnas].head(n).to_string()
     
 
     def resumen_estadistico(self):
